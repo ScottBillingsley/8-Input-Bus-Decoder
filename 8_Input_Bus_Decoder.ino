@@ -81,6 +81,8 @@ void loop() {
       delayMicroseconds(10);
       GATE2_LOW;
       /*Send an ACK to controller to clear the bus */
+      /*Wait for the ACK pin to clear */
+      while(PINB & _BV (2)){}     
       /*Set the ACK pin to Output */
       DDRB |= _BV (2);
       /*Set the ACK pin High */
